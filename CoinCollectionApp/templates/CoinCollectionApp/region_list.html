@@ -1,0 +1,26 @@
+{% extends 'CoinCollectionApp/_base.html' %}
+{% load cointags %}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'region_list.css' %}">
+</head>
+<body>
+    <h1>{{ category }} Coins by Region</h1>
+    {% for region in regions %}
+        <div class="region-box">
+            <h2>{{ region.regionName }}</h2>
+            {% for city in cities|city_in_region:region %}
+
+                <div class="city-box">
+                    <a href="{% url "coin_list" category city.name%}"><p>{{ city.name }}</p></a>
+                </div>
+            {% endfor %}
+        </div>
+    {% endfor %}
+</body>
+{% endblock %}

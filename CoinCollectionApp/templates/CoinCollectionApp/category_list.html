@@ -1,0 +1,45 @@
+{% extends 'CoinCollectionApp/_base.html' %}
+{% load cointags %}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'categories.css' %}">
+</head>
+<body>
+<h1>All Categories</h1>
+<div class="flex-container">
+    {% for category in categories %}
+        <div class="container">
+        <div class="images">
+            {% with cat=category.category %}
+                <img class="coin_image" src="{{ coin_samples|coin_in_category_obverse:cat }}" alt="Coin Image Here">
+                <img class="coin_image" src="{{ coin_samples|coin_in_category_reverse:cat }}" alt="Coin Image Here">
+
+            {% endwith %}
+        </div>
+            <div class="name">
+                <h2>{{ category.category }}</h2>
+            </div>
+            <div class="links">
+                <div class="link-box">
+                    {% if category.category == "Roman Imperial" or category.category == "Roman Provincial" or category.category == "Byzantine"%}
+                        <a href="{% url "roman_emperor_list" category.category%}"><p class="link">By Emperor</p></a>
+                    {% elif category.category == "Roman Republic" %}
+                        <a href="{% url "authority_list" category.category%}"><p class="link">By Authority</p></a>
+                    {% else %}
+                        <a href="{% url "authority_list" category.category%}"><p class="link">By Ruler</p></a>
+                    {% endif %}
+                </div>
+                <div class="link-box">
+                    <a href="{% url "region_list" category.category %}"><p class="link">By Region/City</p></a>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+</body>
+{% endblock content %}

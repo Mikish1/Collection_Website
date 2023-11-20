@@ -1,0 +1,31 @@
+{% extends 'CoinCollectionApp/_base.html' %}
+{% load static %}
+{% load cointags %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'authority_list.css' %}">
+</head>
+<body>
+    {% if category == "Roman Republic" %}
+        <h1>{{ category }} Coins by Authority</h1>
+    {% else %}
+        <h1>{{ category }} Coins by Ruler</h1>
+    {% endif %}
+        {% for state in ruling_state %}
+        <div class="region-box">
+            <h2>{{ state.state }}</h2>
+            {% for ruler in authorities|ruler_in_state:state %}
+
+                <div class="authority-box">
+                    <a href="{% url 'authority_coin_list' category ruler%}"><p>{{ ruler.authorityName }}</p></a>
+                </div>
+        {% endfor %}
+        </div>
+    {% endfor %}
+</body>
+</html>
+{% endblock %}

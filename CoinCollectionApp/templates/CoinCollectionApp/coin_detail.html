@@ -1,0 +1,82 @@
+{% extends 'CoinCollectionApp/_base.html' %}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'coin_detail.css'%}">
+</head>
+<body>
+    <div class="image-box">
+                    <img class="coin_image" src="{{ coin.obverse_image.url }}" alt="Coin Image Here">
+                    <img class="coin_image" src="{{ coin.reverse_image.url }}" alt="Coin Image Here">
+    </div>
+    <table class="table">
+
+        {% if coin.authority.authorityName %}
+            <tr>
+                <td>Governing State</td>
+                <td>{{ coin.authority.rulingState.state }}</td>
+            </tr>
+            <tr>
+                <td>Ruler/Authority</td>
+                <td>{{ coin.authority.authorityName }}</td>
+            </tr>
+        {% endif %}
+        <tr>
+            <td>Mint</td>
+            <td>{{ coin.city.region.regionName }}, {{ coin.city.name }}</td>
+        </tr>
+        {% if coin.magistratee %}
+            <tr>
+            <td>Magistrate</td>
+            <td>{{ coin.magistrate }}</td>
+            </tr>
+        {% endif %}
+        <tr>
+            <td>Date </td>
+        <td>{{ coin.date_range }}</td>
+        </tr>
+        <tr>
+            <td>Weight</td>
+            <td>{{ coin.weight }}g</td>
+        </tr>
+        <tr>
+            <td>Diameter</td>
+            <td>{{ coin.size }}mm</td>
+        </tr>
+        <tr>
+            <td>Metal</td>
+            <td>{{ coin.material|title }}</td>
+        </tr>
+        {% if coin.denomination %}
+            <tr>
+                <td>Denomination</td>
+                <td>{{ coin.denomination }}</td>
+            </tr>
+        {% endif %}
+        <tr>
+            <td>Obverse</td>
+            <td>{{ coin.obverse }}</td>
+        </tr>
+        <tr>
+            <td>Reverse</td>
+            <td>{{ coin.reverse }}</td>
+        </tr>
+        <tr>
+            <td>References</td>
+            <td>{{ coin.reference }}</td>
+        </tr>
+        {% if coin.notes %}
+            <tr>
+                <td>Notes</td>
+                <td>{{ coin.notes }}</td>
+            </tr>
+        {% endif %}
+    </table>
+
+</body>
+</html>
+{% endblock %}

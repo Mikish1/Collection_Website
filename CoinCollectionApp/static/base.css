@@ -1,0 +1,35 @@
+.nav {
+  display: flex;
+  margin: 0;
+  padding: 0 0 2em;
+}
+
+.nav_list {
+
+  background-color: #111111;
+  list-style-type: none;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  margin: 0 0 0 -8px;
+  padding: 0;
+  font-size: 1.5em;
+  font-family: Century, serif;
+  border-bottom: 2px solid black;
+}
+
+.nav_link {
+  float: left;
+}
+
+.nav_link a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.nav_link a:hover {
+  background-color: #222222;
+}

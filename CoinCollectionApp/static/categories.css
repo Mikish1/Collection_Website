@@ -1,0 +1,95 @@
+body{
+  background-color: #222222;
+  color: white;
+}
+
+.link-box {
+  width: min-content;
+}
+
+a:visited {
+  color: gainsboro;
+}
+
+a:link {
+  color: gainsboro;
+}
+
+h1 {
+  text-align: center;
+  font-size: 4em;
+  font-family: Century, serif;
+  padding-bottom: 25px;
+}
+
+
+h2 {
+  font-size: 3em;
+  font-family: Century, serif;
+  margin: 0;
+  padding-bottom: 0.2em;
+  padding-top: 0.5em;
+
+}
+p {
+  margin: 0;
+  font-family: Century, serif;
+  padding: 0.3em 0.4em 0.5em;
+  font-size: 1.5em;
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  gap: 5em;
+}
+
+.coin_image {
+  width: auto;
+  height: 12em;
+
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 52% 48%;
+  grid-template-rows: 1fr 1fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    "images name "
+    "images links ";
+}
+
+.images {
+  grid-area: images;
+  justify-items: end;
+  white-space: nowrap;
+  margin-left: auto;
+  margin-right: 1em;
+}
+
+.name {
+  grid-area: name;
+  justify-items: start;
+}
+
+.links {
+  grid-area: links;
+  justify-items: start;
+}
+
+.link {
+  width: max-content;
+}
+
+.link:hover {
+  -webkit-box-shadow:rgba(0,0,0,0.8) 0px 5px 15px, inset rgba(0,0,0,0.15) 0px -10px 15px;
+  -moz-box-shadow:rgba(0,0,0,0.8) 0px 5px 15px, inset rgba(0,0,0,0.15) 0px -10px 15px;
+  -o-box-shadow:rgba(0,0,0,0.8) 0px 5px 15px, inset rgba(0,0,0,0.15) 0px -10px 15px;
+  box-shadow:rgba(0,0,0,0.8) 0px 5px 10px, inset rgba(0,0,0,0.15) 0px -10px 15px;
+  cursor:pointer;
+  border-radius: 15px;
+  background-color: #2e2e2e;
+}

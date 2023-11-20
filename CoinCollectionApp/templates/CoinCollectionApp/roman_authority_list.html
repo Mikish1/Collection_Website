@@ -1,0 +1,21 @@
+{% extends 'CoinCollectionApp/_base.html' %}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'emperor_list.css' %}">
+</head>
+<body>
+    <h1>{{ category }} Coins by Emperor</h1>
+    {% for authority in authorities %}
+
+        <div class="authority-box">
+            <a href="{% url 'emperor_coin_list' category authority %}"><h2>{{ authority.authorityName }}</h2></a>
+        </div>
+    {% endfor %}
+</body>
+</html>
+{% endblock %}

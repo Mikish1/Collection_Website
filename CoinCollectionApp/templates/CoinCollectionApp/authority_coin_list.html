@@ -1,0 +1,51 @@
+{% extends 'CoinCollectionApp/_base.html' %}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'city_coin_list.css' %}">
+</head>
+<body>
+    <h1> {{ authority.rulingState }}: {{ authority }}</h1>
+    <div class="flex-container">
+        {% for coin in page_obj %}
+            <div class="gallery-coin">
+            <a href="{% url 'coin_detail' category coin.pk%}">
+                <div class="image-box">
+                    <img class="coin_image" src="{{ coin.obverse_image.url }}" alt="Coin Image Here">
+                    <img class="coin_image" src="{{ coin.reverse_image.url }}" alt="Coin Image Here">
+                </div>
+                <div class="paragraph">
+                {% if coin.authority is not None %}
+                    <p>{{ coin.authority.rulingState }}, {{ coin.authority }}: {{ coin.city.region.regionName }}, {{ coin.city.name }} ({{ coin.date_range }})</p>
+                {% else %}
+                    <p>{{ coin.category }}: {{ coin.city.region.regionName }}, {{ coin.city.name }} ({{ coin.date_range }})</p>
+                {% endif %}
+                </div>
+            </a>
+            </div>
+        {% endfor %}
+    </div>
+    <div class="pagination">
+    <span class="step-links">
+        {% if page_obj.has_previous %}
+            <a href="?page=1">&laquo; first</a>
+            <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+        </span>
+
+        {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}">next</a>
+            <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+        {% endif %}
+    </span>
+</div>
+</body>
+</html>
+{% endblock %}

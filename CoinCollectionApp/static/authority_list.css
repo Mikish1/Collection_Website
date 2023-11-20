@@ -1,0 +1,64 @@
+h1 {
+  text-align: center;
+  font-size: 4em;
+  font-family: Century, serif;
+  padding-bottom: 25px;
+}
+
+h2{
+  margin: 0;
+  padding-bottom: 5px;
+}
+
+p{
+  margin: 0.1em;
+  padding: 5px 15px 10px;
+}
+
+body{
+  background-color: #222222;
+  color: white;
+  text-align: center;
+}
+
+.region-box {
+  font-family: Century, serif;
+  font-size: 1.4em;
+  padding-bottom: 2em;
+
+}
+
+
+a:visited {
+  color: gainsboro;
+
+}
+
+a:link {
+  color: gainsboro;
+}
+
+.authority-box {
+  display: flex;
+  font-family: Century, serif;
+  width: max-content;
+  margin: auto;
+  align-items: center;
+  justify-content: center;
+
+}
+
+a:visited {
+  color: gainsboro;
+
+}
+
+.authority-box:hover {
+  -webkit-box-shadow:rgba(0,0,0,0.8) 0px 5px 15px, inset rgba(0,0,0,0.15) 0px -10px 15px;
+  -moz-box-shadow:rgba(0,0,0,0.8) 0px 5px 15px, inset rgba(0,0,0,0.15) 0px -10px 15px;
+  -o-box-shadow:rgba(0,0,0,0.8) 0px 5px 15px, inset rgba(0,0,0,0.15) 0px -10px 15px;
+  box-shadow:rgba(0,0,0,0.8) 0px 5px 10px, inset rgba(0,0,0,0.15) 0px -10px 15px;
+  cursor:pointer;
+  border-radius: 15px;
+  background-color: #2e2e2e;
+}
