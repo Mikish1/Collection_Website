@@ -1,3 +1,7 @@
+body{
+  background-color: #222222;
+}
+
 .nav {
   display: flex;
   margin: 0;
@@ -20,6 +24,7 @@
 
 .nav_link {
   float: left;
+  border-right: 2px solid black;
 }
 
 .nav_link a {

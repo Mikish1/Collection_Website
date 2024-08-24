@@ -7,8 +7,8 @@ from .models import Category, Region, City, Coin, Authority, RulingState
 
 
 # Create your views here.
-class HomeView(TemplateView):
-    template_name = 'CoinCollectionApp/home.html'
+def map_view(request):
+    return render(request, "CoinCollectionApp/map.html")
 
 
 def category_list_view(request):
@@ -54,9 +54,10 @@ def city_coin_list_view(request, category, city):
 
 def roman_authority_list_view(request, category):
     rulingState = RulingState.objects.get(state="Roman Empire")
-    authorities = Authority.objects.all().filter(mint_authority__category__category=category)
+    authorities = Authority.objects.all().filter(mint_authority__category__category=category).distinct().order_by('endRule')
     coins = Coin.objects.all().filter(category__category=category, authority__rulingState__state="Roman Empire").order_by("authority__endRule")
 
+    print(authorities)
     context = {
         'authorities': authorities,
         'rulingstate': rulingState,

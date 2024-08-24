@@ -70,13 +70,14 @@ class Coin(models.Model):
     weight = models.FloatField()
     material = models.CharField(max_length=100, choices=MATERIAL_CHOICES)
     denomination = models.CharField(max_length=100, blank=True)
-    date_range = models.CharField(max_length=10, blank=True)
+    date_range = models.CharField(max_length=20, blank=True)
     date_exact = models.CharField(max_length=10, blank=True)
     obverse = models.TextField(default='')
     reverse = models.TextField(default='')
     reference = models.CharField(default='', max_length=50, blank=True)
     notes = models.TextField(blank=True)
     display = models.BooleanField(default=True)
+    end_date = models.IntegerField(default=0, blank=True, null=True)
 
     def __str__(self):
         if self.authority is not None:

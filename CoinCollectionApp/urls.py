@@ -1,6 +1,6 @@
 from django.urls import path
-from .views import HomeView, category_list_view, region_list_view, city_coin_list_view, roman_authority_list_view, \
-    authority_list_view, authority_coin_list_view, emperor_coin_list_view, coin_detail_view
+from .views import category_list_view, region_list_view, city_coin_list_view, roman_authority_list_view, \
+    authority_list_view, authority_coin_list_view, emperor_coin_list_view, coin_detail_view, map_view
 
 urlpatterns = [
 
@@ -13,5 +13,6 @@ urlpatterns = [
     path('categories/<str:category>/authorities/<str:authority>', authority_coin_list_view, name="authority_coin_list"),
     path('categories/<str:category>/emperors/<str:authority>', emperor_coin_list_view, name="emperor_coin_list"),
     path('categories/<str:category>/<int:pk>', coin_detail_view, name="coin_detail"),
+    path('map', map_view, name="city_map")
 
 ]

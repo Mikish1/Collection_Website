@@ -31,6 +31,7 @@ h2 {
   padding-top: 0.5em;
 
 }
+
 p {
   margin: 0;
   font-family: Century, serif;
@@ -56,7 +57,7 @@ p {
   display: grid;
   grid-template-columns: 52% 48%;
   grid-template-rows: 1fr 1fr;
-  gap: 0px 0px;
+  gap: 0 0;
   grid-template-areas:
     "images name "
     "images links ";
@@ -85,11 +86,11 @@ p {
 }
 
 .link:hover {
-  -webkit-box-shadow:rgba(0,0,0,0.8) 0px 5px 15px, inset rgba(0,0,0,0.15) 0px -10px 15px;
-  -moz-box-shadow:rgba(0,0,0,0.8) 0px 5px 15px, inset rgba(0,0,0,0.15) 0px -10px 15px;
-  -o-box-shadow:rgba(0,0,0,0.8) 0px 5px 15px, inset rgba(0,0,0,0.15) 0px -10px 15px;
-  box-shadow:rgba(0,0,0,0.8) 0px 5px 10px, inset rgba(0,0,0,0.15) 0px -10px 15px;
+  -webkit-box-shadow:rgba(0,0,0,0.2) 0 5px 5px, inset rgba(0,0,0,0.15) 0 -1px 5px;
+  -moz-box-shadow:rgba(0,0,0,0.2) 0 5px 5px, inset rgba(0,0,0,0.15) 0 -1px 5px;
+  -o-box-shadow:rgba(0,0,0,0.2) 0 5px 5px, inset rgba(0,0,0,0.15) 0 -1px 5px;
+  box-shadow:rgba(0,0,0,0.2) 0 5px 5px, inset rgba(0,0,0,0.15) 0 -1px 5px;
   cursor:pointer;
-  border-radius: 15px;
+  border-radius: 10px;
   background-color: #2e2e2e;
 }

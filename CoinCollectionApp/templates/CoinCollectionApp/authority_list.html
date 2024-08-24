@@ -19,7 +19,6 @@
         <div class="region-box">
             <h2>{{ state.state }}</h2>
             {% for ruler in authorities|ruler_in_state:state %}
-
                 <div class="authority-box">
                     <a href="{% url 'authority_coin_list' category ruler%}"><p>{{ ruler.authorityName }}</p></a>
                 </div>
